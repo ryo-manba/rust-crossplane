@@ -912,6 +912,156 @@ mod tests {
                     },
                 ],
             },
+            LexFixture{
+                name: "quote-behavior",
+                tokens: vec![
+                    TokenLine {
+                        value: "outer-quote",
+                        line: 1,
+                    },
+                    TokenLine {
+                        value: "left",
+                        line: 1,
+                    },
+                    TokenLine {
+                        value: "-quote",
+                        line: 1,
+                    },
+                    TokenLine {
+                        value: "right-\"quote\"",
+                        line: 1,
+                    },
+                    TokenLine {
+                        value: "inner\"-\"quote",
+                        line: 1,
+                    },
+                    TokenLine {
+                        value: ";",
+                        line: 1,
+                    },
+                    TokenLine {
+                        value: "",
+                        line: 2,
+                    },
+                    TokenLine {
+                        value: "",
+                        line: 2,
+                    },
+                    TokenLine {
+                        value: "left-empty",
+                        line: 2,
+                    },
+                    TokenLine {
+                        value: "right-empty\"\"",
+                        line: 2,
+                    },
+                    TokenLine {
+                        value: "inner\"\"empty",
+                        line: 2,
+                    },
+                    TokenLine {
+                        value: "right-empty-single\"",
+                        line: 2,
+                    },
+                    TokenLine {
+                        value: ";",
+                        line: 2,
+                    },
+                ]
+            },
+            LexFixture{
+                name:"quoted-right-brace", 
+                tokens: vec![
+                    TokenLine {
+                        value: "events",
+                        line: 1,
+                    },
+                    TokenLine {
+                        value: "{",
+                        line: 1,
+                    },
+                    TokenLine {
+                        value: "}",
+                        line: 1,
+                    },
+                    TokenLine {
+                        value: "http",
+                        line: 2,
+                    },
+                    TokenLine {
+                        value: "{",
+                        line: 2,
+                    },
+                    TokenLine {
+                        value: "log_format",
+                        line: 3,
+                    },
+                    TokenLine {
+                        value: "main",
+                        line: 3,
+                    },
+                    TokenLine {
+                        value: "escape=json",
+                        line: 3,
+                    },
+                    TokenLine {
+                        value: "{ \"@timestamp\": \"$time_iso8601\", ",
+                        line: 4,
+                    },
+                    TokenLine {
+                        value: "\"server_name\": \"$server_name\", ",
+                        line: 5,
+                    },
+                    TokenLine {
+                        value: "\"host\": \"$host\", ",
+                        line: 6,
+                    },
+                    TokenLine {
+                        value: "\"status\": \"$status\", ",
+                        line: 7,
+                    },
+                    TokenLine {
+                        value: "\"request\": \"$request\", ",
+                        line: 8,
+                    },
+                    TokenLine {
+                        value: "\"uri\": \"$uri\", ",
+                        line: 9,
+                    },
+                    TokenLine {
+                        value: "\"args\": \"$args\", ",
+                        line: 10,
+                    },
+                    TokenLine {
+                        value: "\"https\": \"$https\", ",
+                        line: 11,
+                    },
+                    TokenLine {
+                        value: "\"request_method\": \"$request_method\", ",
+                        line: 12,
+                    },
+                    TokenLine {
+                        value: "\"referer\": \"$http_referer\", ",
+                        line: 13,
+                    },
+                    TokenLine {
+                        value: "\"agent\": \"$http_user_agent\"",
+                        line: 14,
+                    },
+                    TokenLine {
+                        value: "}",
+                        line: 15,
+                    },
+                    TokenLine {
+                        value: ";",
+                        line: 15,
+                    },
+                    TokenLine {
+                        value: "}",
+                        line: 16,
+                    },
+                ]
+            },
         ];
 
         for fixture in fixtures {
